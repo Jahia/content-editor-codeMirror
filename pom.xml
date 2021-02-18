@@ -55,21 +55,20 @@
         <version>8.0.1.0</version>
     </parent>
 
-    <artifactId>content-editor-extensions-parent</artifactId>
-    <name>Jahia Content Editor Extensions Parent Project</name>
+    <groupId>org.jahia.se.modules</groupId>
+    <artifactId>codeMirror-editor-parent</artifactId>
+    <name>CodeMirror Editor Parent Project</name>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>content-editor-extensions</module>
-        <module>content-editor-extensions-tests</module>
+        <module>codeMirror-editor</module>
     </modules>
 
     <scm>
-        <connection>scm:git:git@github.com:Jahia/content-editor-extensions.git</connection>
-        <developerConnection>scm:git:git@github.com:Jahia/content-editor-extensions.git</developerConnection>
-        <url>https://github.com/Jahia/content-editor-extensions</url>
-        <tag>HEAD</tag>
+        <connection>scm:git:git@github.com:Jahia/content-editor-codeMirror.git</connection>
+        <developerConnection>scm:git:git@github.com:Jahia/content-editor-codeMirror.git</developerConnection>
+        <url>https://github.com/Jahia/content-editor-codeMirror</url>
     </scm>
 
     <repositories>

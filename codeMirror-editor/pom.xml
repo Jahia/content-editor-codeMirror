@@ -54,16 +54,17 @@
         <groupId>org.jahia.modules</groupId>
         <version>8.0.1.0</version>
     </parent>
-    <artifactId>content-editor-extensions</artifactId>
-    <name>Jahia Content Editor Extensions</name>
+
+    <groupId>org.jahia.se.modules</groupId>
+    <artifactId>codeMirror-editor</artifactId>
+    <name>CodeMirror Editor</name>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <description>Jahia content editor extensions for content editor.</description>
+    <description>Jahia CodeMirror editor for jContent.</description>
 
     <properties>
         <yarn.arguments>build:production</yarn.arguments>
         <require-capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"</require-capability>
-        <jahia-module-signature>MC0CFAEuaB6jAtl51r3VEMwsDIs3LJ4QAhUAkURnn9pU415xebqVwI8RHCoc9eo=</jahia-module-signature>
     </properties>
 
     <repositories>
