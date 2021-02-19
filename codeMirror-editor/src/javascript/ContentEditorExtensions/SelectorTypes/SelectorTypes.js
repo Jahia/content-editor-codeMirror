@@ -1,5 +1,5 @@
-import RichTextMarkdown from './RichTextMarkdown';
+import RichTextCodeMirrorCmp from './CodeMirror';
 
 export const registerSelectorTypes = registry => {
-    registry.add('selectorType', 'Markdown', {cmp: RichTextMarkdown, supportMultiple: false});
+    registry.add('selectorType', 'CodeMirror', {cmp: RichTextCodeMirrorCmp, supportMultiple: false});
 };

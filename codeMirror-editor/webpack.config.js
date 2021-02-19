@@ -12,7 +12,7 @@ module.exports = (env, argv) => {
         },
         output: {
             path: path.resolve(__dirname, 'src/main/resources/javascript/apps/'),
-            filename: 'content-editor-extensions.bundle.js',
+            filename: 'codeMirror-editor.bundle.js',
             chunkFilename: '[name].jahia.[chunkhash:6].js'
         },
         resolve: {
@@ -86,8 +86,8 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new ModuleFederationPlugin({
-                name: "contentEditorExtensions",
-                library: { type: "assign", name: "appShell.remotes.contentEditorExtensions" },
+                name: "codeMirrorEditor",
+                library: { type: "assign", name: "appShell.remotes.codeMirrorEditor" },
                 filename: "remoteEntry.js",
                 exposes: {
                     './init': './src/javascript/init'
