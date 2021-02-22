@@ -86,8 +86,8 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new ModuleFederationPlugin({
-                name: "codeMirrorEditor",
-                library: { type: "assign", name: "appShell.remotes.codeMirrorEditor" },
+                name: "codeMirrorHTMLEditor",
+                library: { type: "assign", name: "appShell.remotes.codeMirrorHTMLEditor" },
                 filename: "remoteEntry.js",
                 exposes: {
                     './init': './src/javascript/init'

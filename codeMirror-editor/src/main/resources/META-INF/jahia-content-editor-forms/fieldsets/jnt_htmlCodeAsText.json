@@ -3,7 +3,7 @@
   "fields": [
     {
       "name": "sourceCode",
-      "selectorType": "CodeMirror"
+      "selectorType": "CodeMirrorHTML"
     }
   ]
 }

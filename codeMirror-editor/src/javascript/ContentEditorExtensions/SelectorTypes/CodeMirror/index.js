@@ -1,3 +1,3 @@
-import RichTextCodeMirrorCmp from './RichTextCodeMirrorCmp';
+import CodeMirrorHTMLCmp from './CodeMirrorHTMLCmp';
 
-export default RichTextCodeMirrorCmp;
+export default CodeMirrorHTMLCmp;
