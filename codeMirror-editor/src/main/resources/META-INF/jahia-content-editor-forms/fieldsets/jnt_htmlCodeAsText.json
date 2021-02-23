@@ -3,7 +3,13 @@
   "fields": [
     {
       "name": "sourceCode",
-      "selectorType": "CodeMirrorHTML"
+      "selectorType": "CodeMirror",
+      "selectorOptions":[
+        {
+          "name": "mode",
+          "value" : "xml"
+        }
+      ]
     }
   ]
 }

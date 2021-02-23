@@ -1,3 +1,3 @@
-import CodeMirrorHTMLCmp from './CodeMirrorHTMLCmp';
+import CodeMirrorCmp from './CodeMirrorCmp';
 
-export default CodeMirrorHTMLCmp;
+export default CodeMirrorCmp;

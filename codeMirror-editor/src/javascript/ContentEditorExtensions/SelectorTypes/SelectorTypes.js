@@ -1,5 +1,5 @@
-import CodeMirrorHTMLCmp from './CodeMirror';
+import CodeMirrorCmp from './CodeMirror';
 
 export const registerSelectorTypes = registry => {
-    registry.add('selectorType', 'CodeMirrorHTML', {cmp: CodeMirrorHTMLCmp, supportMultiple: false});
+    registry.add('selectorType', 'CodeMirror', {cmp: CodeMirrorCmp, supportMultiple: false});
 };
