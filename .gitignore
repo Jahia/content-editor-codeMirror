@@ -10,3 +10,5 @@ node_modules
 yarn-error.log
 /src/main/resources/javascript/apps
 coverage
+/pom.xml.releaseBackup
+/release.properties
