@@ -1,0 +1,15 @@
+{
+  "name": "sbmix:headCode",
+  "fields": [
+    {
+      "name": "headCode",
+      "selectorType": "CodeMirror",
+      "selectorOptions":[
+        {
+          "name": "mode",
+          "value" : "xml"
+        }
+      ]
+    }
+  ]
+}

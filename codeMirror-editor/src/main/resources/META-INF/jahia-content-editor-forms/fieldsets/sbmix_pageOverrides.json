@@ -1,0 +1,15 @@
+{
+  "name": "sbmix:pageOverrides",
+  "fields": [
+    {
+      "name": "pageHeadOverride",
+      "selectorType": "CodeMirror",
+      "selectorOptions":[
+        {
+          "name": "mode",
+          "value" : "xml"
+        }
+      ]
+    }
+  ]
+}
