@@ -13,7 +13,11 @@
     <version>1.1.2-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <description>Jahia CodeMirror editor for jContent.</description>
-
+    <scm>
+        <connection>scm:git:git@github.com:Jahia/content-editor-codeMirror.git</connection>
+        <developerConnection>scm:git:git@github.com:Jahia/content-editor-codeMirror.git</developerConnection>
+        <url>https://github.com/Jahia/content-editor-codeMirror</url>
+    </scm>
     <properties>
         <yarn.arguments>build:production</yarn.arguments>
         <require-capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"</require-capability>
