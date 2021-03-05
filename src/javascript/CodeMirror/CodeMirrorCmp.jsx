@@ -56,8 +56,8 @@ const CodeMirrorCmp = ({field, id, value, onChange}) => {
 
     const defaultMode = {value: 'xml'};
     const mode = selectorOptions.find(option => option.name === 'mode') || defaultMode;
-    console.debug('mode : ', mode);
-    console.debug('enabledMode : ', enabledMode);
+    // A console.debug('mode : ', mode);
+    // console.debug('enabledMode : ', enabledMode);
 
     if (enabledMode.includes(mode.value)) {
         let optMode = mode.value;
@@ -83,12 +83,12 @@ const CodeMirrorCmp = ({field, id, value, onChange}) => {
         console.warn('CodeMirror "theme" not supported by the Selector, switch to default');
     }
 
-    const handleBeforeChange = (editor, data, value) => {
-        setCode(value);
+    const handleBeforeChange = (editor, data, editorValue) => {
+        setCode(editorValue);
     };
 
-    const handleChange = (editor, data, value) => {
-        onChange(value);
+    const handleChange = (editor, data, editorValue) => {
+        onChange(editorValue);
     };
 
     // Code -> onSelection={(editor, data) => {}}

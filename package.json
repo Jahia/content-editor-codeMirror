@@ -26,9 +26,6 @@
     "jahia": {
         "remotes": {
             "jahia": "javascript/apps/remoteEntry.js"
-        },
-        "apps": {
-            "jahia": "configs/codeMirrorEditor.jsp"
         }
     },
     "dependencies": {

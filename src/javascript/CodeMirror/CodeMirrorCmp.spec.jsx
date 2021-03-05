@@ -48,19 +48,20 @@ describe('CodeMirrorCmp', () => {
         expect(cmp.find('CodeMirror').props().options.theme).toBeUndefined();
     });
 
-    // A it('should update CodeMirror value onBeforeChange', () => {
-    //     const cmp = shallow(<CodeMirrorCmp {...defaultProps}/>);
-    //
-    //     // Const code = cmp.find('CodeMirror').props().onBeforeChange('<h2>The new value</h2>');
-    //     cmp.find('CodeMirror').simulate('change', '<h2>The new value</h2>');
-    //     expect(cmp.find('CodeMirror').props().value).toBe('<h2>The new value</h2>');
-    // });
-
-    it('should update value on change', () => {
+    it('should update CodeMirrorCmp value on beforeChange', () => {
+        const newValue = '<h2>The new value</h2>';
         const cmp = shallow(<CodeMirrorCmp {...defaultProps}/>);
 
-        cmp.find('CodeMirror').simulate('change', '<h3>The last value</h3>');
+        cmp.find('CodeMirror').props().onBeforeChange(null, null, newValue);
+        expect(cmp.props().value).toBe(newValue);
+    });
 
-        expect(defaultProps.onChange).toHaveBeenCalledWith('<h3>The last value</h3>');
+    it('should update value on change', () => {
+        const newValue = '<h3>The last value</h3>';
+        const cmp = shallow(<CodeMirrorCmp {...defaultProps}/>);
+
+        cmp.find('CodeMirror').props().onChange(null, null, newValue);
+
+        expect(defaultProps.onChange).toHaveBeenCalledWith(newValue);
     });
 });
