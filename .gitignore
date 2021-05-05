@@ -1,7 +1,7 @@
 /.classpath
 /.project
 /.settings
-../.idea
+/.idea
 *.iml
 *.ipr
 target
@@ -10,3 +10,4 @@ node_modules
 yarn-error.log
 /src/main/resources/javascript/apps
 coverage
+
