@@ -22,37 +22,47 @@ import 'codemirror/addon/fold/comment-fold';
 import 'codemirror/addon/fold/foldgutter.css';
 import './CodeMirrorCmp.css';
 
-const defaultMode = {value: 'xml'};
-const enabledMode = [
-    'xml',
-    'javascript',
-    'htmlembedded', // For jsp
-    'groovy',
-    'css', // Include scss
-    'markdown',
-    'handlebars' // Code -> mode: {name: "handlebars", base: "text/html"}
-];
-const enabledTheme = [
-    'material'
-];
-const getCodeMirrorOptions = () => ({
-    lineWrapping: true,
-    smartIndent: true,
-    lineNumbers: true,
-    foldGutter: true,
-    gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
-    autoCloseTags: true,
-    keyMap: 'sublime',
-    matchBrackets: true,
-    autoCloseBrackets: true,
-    extraKeys: {
-        'Ctrl-Space': 'autocomplete'
-    },
-    viewportMargin: Infinity
-});
+const CodeMirrorCmp = ({field, id, value, onChange}) => {
+    const [code, setCode] = React.useState(value);
+    const {selectorOptions} = field;
+    React.useEffect(() => {
+        console.log('CodeMirrorCmp field : ', field);
+    }, [field]);
 
-const getMode = selectorOptions => {
+    const enabledMode = [
+        'xml',
+        'javascript',
+        'htmlembedded', // For jsp
+        'groovy',
+        'css', // Include scss
+        'markdown',
+        'handlebars' // Code -> mode: {name: "handlebars", base: "text/html"}
+    ];
+    const enabledTheme = [
+        'material'
+    ];
+
+    const codeMirrorOptions = {
+        lineWrapping: true,
+        smartIndent: true,
+        lineNumbers: true,
+        foldGutter: true,
+        gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
+        autoCloseTags: true,
+        keyMap: 'sublime',
+        matchBrackets: true,
+        autoCloseBrackets: true,
+        extraKeys: {
+            'Ctrl-Space': 'autocomplete'
+        },
+        viewportMargin: Infinity
+    };
+
+    const defaultMode = {value: 'xml'};
     const mode = selectorOptions.find(option => option.name === 'mode') || defaultMode;
+    // A console.debug('mode : ', mode);
+    // console.debug('enabledMode : ', enabledMode);
+
     if (enabledMode.includes(mode.value)) {
         let optMode = mode.value;
         switch (optMode) {
@@ -64,54 +74,44 @@ const getMode = selectorOptions => {
             // No default
         }
 
-        return optMode;
+        codeMirrorOptions.mode = optMode;
+    } else {
+        console.warn('CodeMirror "mode" not supported by the Selector, switch to "xml" as default');
+        codeMirrorOptions.mode = defaultMode.value;
     }
 
-    console.warn('CodeMirror "mode" not supported by the Selector, switch to "xml" as default');
-    return defaultMode.value;
-};
-
-const getTheme = selectorOptions => {
     const theme = selectorOptions.find(option => option.name === 'theme');
     if (theme) {
         if (enabledTheme.includes(theme.value)) {
-            return theme.value;
+            codeMirrorOptions.theme = theme.value;
+        } else {
+            console.warn('CodeMirror "theme" not supported by the Selector, switch to default');
         }
-
-        console.warn('CodeMirror "theme" not supported by the Selector, switch to default');
     }
-};
-
-const CodeMirrorCmp = ({field, id, value, onChange}) => {
-    const [code, setCode] = React.useState(value);
-    const [options, setOptions] = React.useState({});
-    const {selectorOptions} = field;
-
-    React.useEffect(() => {
-        const codeMirrorOptions = getCodeMirrorOptions();
-        codeMirrorOptions.mode = getMode(selectorOptions);
-        const theme = getTheme(selectorOptions);
-        if (theme) {
-            codeMirrorOptions.theme = theme;
-        }
-
-        setOptions(codeMirrorOptions);
-    }, [selectorOptions]);
 
     const handleBeforeChange = (editor, data, editorValue) => {
         setCode(editorValue);
     };
 
     const handleChange = (editor, data, editorValue) => {
+        console.log('handleChange');
         return onChange(editorValue);
     };
+
+    // Const handleUpdate = (editor, data, editorValue) => {
+    //     onChange(editorValue);
+    // };
+
     // Code -> onSelection={(editor, data) => {}}
 
+    // onUpdate={handleUpdate}
+    // value= {code}
+    console.log('paint!');
     return (
         <CodeMirror
             id={id}
             value={code}
-            options={options}
+            options={codeMirrorOptions}
             onBeforeChange={handleBeforeChange}
             onChange={handleChange}
         />
